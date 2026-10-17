@@ -1,10 +1,20 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
-from app.modules.users.router import router as users_router
+from app.core.database import init_db
 from app.modules.jobs.router import router as jobs_router
 from app.modules.reports.router import router as reports_router
+from app.modules.users.router import router as users_router
 
-app = FastAPI(title="JobHub")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+
+app = FastAPI(title="JobHub", lifespan=lifespan)
 
 app.include_router(users_router, prefix="/users", tags=["users"])
 app.include_router(jobs_router, prefix="/jobs", tags=["jobs"])

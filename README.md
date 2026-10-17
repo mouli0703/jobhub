@@ -15,3 +15,18 @@ Modules talk to each other only through service functions, never through each ot
 
 ## Roadmap
 Week 1: monolith skeleton and Docker. Next: database, auth, CI, cloud deploy, safe releases, then splitting into services.
+
+
+## Run with Docker Compose (app + Postgres)
+docker compose up --build
+
+## Run tests
+python -m pytest
+
+## API
+POST /users/register, POST /users/login, GET /users/me
+GET/POST /jobs/, GET/PATCH/DELETE /jobs/{id} (login required, owner only)
+
+## Design notes
+- Jobs stores owner_id as a plain integer (no foreign key to users), so the module can be extracted later.
+- Tables are created at startup. Week 6 replaces this with proper migrations.

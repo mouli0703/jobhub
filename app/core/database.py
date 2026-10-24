@@ -22,7 +22,7 @@ def get_db():
 
 def init_db():
     # Import the models so their tables are registered, then create missing tables.
-    from app.modules.users import models as users_models  # noqa: F401
     from app.modules.jobs import models as jobs_models  # noqa: F401
+    from app.modules.users import models as users_models  # noqa: F401
 
     Base.metadata.create_all(bind=engine)

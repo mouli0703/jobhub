@@ -1,7 +1,7 @@
-fastapi
-uvicorn[standard]
-sqlalchemy>=2.0
-psycopg[binary]>=3.2
-PyJWT
-pwdlib[argon2]
-python-multipart
+fastapi==0.143.0
+uvicorn==0.54.0
+sqlalchemy==2.1.5
+psycopg==3.3.6
+PyJWT==2.15.1
+pwdlib==0.3.1
+python-multipart==0.0.32

@@ -20,6 +20,7 @@ services:
     environment:
       DATABASE_URL: postgresql+psycopg://jobhub:jobhub@db:5432/jobhub
       SECRET_KEY: ${SECRET_KEY:-dev-only-change-me}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
     depends_on:
       db:
         condition: service_healthy

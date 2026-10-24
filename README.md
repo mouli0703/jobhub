@@ -1,3 +1,4 @@
+![CI](https://github.com/mouli0703/jobhub/actions/workflows/ci.yml/badge.svg)
 # JobHub
 
 A modular monolith for running automation jobs. I am migrating it step by step into microservices as a learning lab.
@@ -30,3 +31,8 @@ GET/POST /jobs/, GET/PATCH/DELETE /jobs/{id} (login required, owner only)
 ## Design notes
 - Jobs stores owner_id as a plain integer (no foreign key to users), so the module can be extracted later.
 - Tables are created at startup. Week 6 replaces this with proper migrations.
+## CI
+Every push runs Ruff, the tests and a Docker build (GitHub Actions).
+
+## Configuration
+ENVIRONMENT, SECRET_KEY, DATABASE_URL and ACCESS_TOKEN_EXPIRE_MINUTES come from environment variables. See .env.example.

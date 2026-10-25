@@ -1,6 +1,6 @@
 import os
 
-DEFAULT_SECRET_KEY = "dev-only-change-me"
+DEFAULT_SECRET_KEY = "dev-only-secret-key-change-me-in-production"
 
 ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./jobhub.db")
